@@ -10,12 +10,33 @@
 	<script src="/js/app.js"></script>
 	<link rel="stylesheet" href="/css/bootstrap.css"/>
 </head>
-<body ng-controller="appCtrl">
+<body ng-controller="ContactListCtrl">
 	<div class="container">
 		<div class="row col-xs-12">
 			<h1>Contact List</h1>
 		</div>
-		{{name}}
+		<div class="row col-xs-8">
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Firstname</th>
+							<th>Lastname</th>
+							<th>Phone nr</th>
+							<th>Group</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="contact in contactList">
+							<td>{{contact.firstname}}</td>
+							<td>{{contact.lastname}}</td>
+							<td>{{contact.phone}}</td>
+							<td>{{contact.group}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
