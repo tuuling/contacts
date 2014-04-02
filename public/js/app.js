@@ -1,9 +1,9 @@
 (function() {
   var app;
 
-  app = angular.module('contactList', []);
+  app = angular.module('contactList', ['ui.bootstrap']);
 
-  app.controller('ContactListCtrl', function($scope) {
+  app.controller('ContactListCtrl', function($scope, $modal) {
     $scope.contactList = [
       {
         firstname: 'Reedik',
@@ -23,7 +23,9 @@
       }
     ];
     return $scope.addContant = function() {
-      return console.log('addcontanct');
+      return $modal.open({
+        template: "<span>Modal opened</span>"
+      });
     };
   });
 

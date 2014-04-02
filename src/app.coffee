@@ -1,6 +1,6 @@
-app = angular.module 'contactList', []
+app = angular.module 'contactList', ['ui.bootstrap']
 
-app.controller 'ContactListCtrl', ($scope) ->
+app.controller 'ContactListCtrl', ($scope, $modal) ->
 
   $scope.contactList = [
     firstname: 'Reedik'
@@ -20,4 +20,5 @@ app.controller 'ContactListCtrl', ($scope) ->
   ]
 
   $scope.addContant = () ->
-    console.log('addcontanct')
+    $modal.open
+      template: "<span>Modal opened</span>"
