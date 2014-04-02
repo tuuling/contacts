@@ -8,18 +8,21 @@ module.exports = function(grunt) {
 		},
 		coffee: {
 			compile: {
-				options: {
-					sourceMap: true
-				},
 				files: {
 					'public/js/app.js': ['src/*.coffee']
 				}
 			}
+		},
+		karma:{
+			unit: {
+				configFile: 'karma.conf.js'
+			}
 		}
 	});
 
-	// Load the plugin that provides the "uglify" task.
+	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-coffee');
+	grunt.loadNpmTasks('grunt-karma');
 
 	// Default task(s).
 	grunt.registerTask('default', ['coffee']);
