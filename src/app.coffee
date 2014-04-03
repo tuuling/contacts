@@ -1,24 +1,34 @@
 app = angular.module 'contactList', ['ui.bootstrap']
 
-app.controller 'ContactListCtrl', ($scope, $modal) ->
+app.controller 'ContactListCtrl', ($scope, $modal, ContactList) ->
 
-  $scope.contactList = [
-    firstname: 'Reedik'
-    lastname: 'Tuuling'
-    phone: '53241'
-    group: 'work'
-  ,
-    firstname: 'Kaisa'
-    lastname: 'Tuuling'
-    phone: '53241'
-    group: 'home'
-  ,
-    firstname: 'Oliver'
-    lastname: 'Tuuling'
-    phone: '53241'
-    group: 'work'
-  ]
+  $scope.contactList = ContactList.list
 
-  $scope.addContant = () ->
+  $scope.addContact = () ->
     $modal.open
-      template: "<span>Modal opened</span>"
+      templateUrl: "/templates/add_contact.html"
+      scope: $scope
+      controller: 'AddContactCtrl'
+
+app.controller 'AddContactCtrl', ($scope, $modalInstance, ContactList) ->
+  $scope.form =
+    firstname: ''
+    lastname: ''
+    phone: ''
+    group: ''
+
+  $scope.submit = () ->
+    if $scope.form.firstname and $scope.form.phone
+      ContactList.add $scope.form
+      do $modalInstance.close
+
+  return
+
+app.service 'ContactList', () ->
+
+  @list = []
+
+  @add = (formData) ->
+    @list.push angular.copy formData
+
+  return
