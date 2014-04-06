@@ -26,5 +26,6 @@ module.exports = function(grunt) {
 
 	// Default task(s).
 	grunt.registerTask('default', ['coffee']);
+	grunt.registerTask('test', ['karma:unit']);
 
 };

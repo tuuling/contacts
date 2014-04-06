@@ -5,14 +5,17 @@
 
   app.controller('ContactListCtrl', function($scope, $modal, ContactList) {
     $scope.contactList = ContactList.list;
-    return $scope.addContact = function() {
+    $scope.addContact = function() {
       return $modal.open({
         templateUrl: "/templates/add_contact.html",
         scope: $scope,
         controller: 'AddContactCtrl'
       });
     };
+    $scope.predicate = 'firstname';
   });
+
+  app.controller('ContactCtrl', function($scope) {});
 
   app.controller('AddContactCtrl', function($scope, $modalInstance, ContactList) {
     $scope.form = {
@@ -30,7 +33,29 @@
   });
 
   app.service('ContactList', function() {
-    this.list = [];
+    this.list = [
+      {
+        firstname: 'Reedik',
+        lastname: 'Tuuling',
+        phone: '53819100',
+        group: 'work'
+      }, {
+        firstname: 'Dave',
+        lastname: 'Murray',
+        phone: '5341351',
+        group: 'home'
+      }, {
+        firstname: 'Steve',
+        lastname: 'Harris',
+        phone: '5234623',
+        group: 'work'
+      }, {
+        firstname: 'Janick',
+        lastname: 'Gers',
+        phone: '6432243',
+        group: 'home'
+      }
+    ];
     this.add = function(formData) {
       return this.list.push(angular.copy(formData));
     };
