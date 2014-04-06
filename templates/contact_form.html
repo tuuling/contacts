@@ -1,0 +1,41 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="$dismiss()" aria-hidden="true">&times;</button>
+	<h4 class="modal-title">{{action}} Contact</h4>
+</div>
+<div class="modal-body">
+	<form class="form-horizontal" role="form" ng-submit="submit()" name="addContactForm">
+		<div class="form-group" ng-class="{'has-error': addContactForm.Firstname.$invalid && addContactForm.Firstname.$dirty}">
+			<label for="firstname" class="col-sm-4 control-label">Firstname *</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="firstname" name="Firstname" placeholder="Firstname" ng-model="form.firstname" required>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="lastname" class="col-sm-4 control-label">Lastname</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="lastname" placeholder="Lastname" ng-model="form.lastname">
+			</div>
+		</div>
+		<div class="form-group" ng-class="{'has-error': addContactForm.phone.$invalid && addContactForm.phone.$dirty}">
+			<label for="phone" class="col-sm-4 control-label">Phone *</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number" ng-model="form.phone" required>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="group" class="col-sm-4 control-label">Group</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="group" placeholder="Group" ng-model="form.group">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-6 col-sm-offset-4">
+				* Mandatory
+			</div>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-success" ng-click="submit()" ng-disabled="addContactForm.$invalid">Save</button>
+	<button type="button" class="btn btn-default" ng-click="$dismiss()">Cancel</button>
+</div>

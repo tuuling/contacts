@@ -1,0 +1,7 @@
+.contactTable thead a{
+    cursor: pointer;
+}
+
+.contactTable thead a.active{
+    text-decoration: underline;
+}
