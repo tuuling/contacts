@@ -7,7 +7,7 @@
     $scope.contactList = ContactList.list;
     $scope.addContact = function() {
       return $modal.open({
-        templateUrl: "/templates/contact_form.html",
+        templateUrl: "templates/contact_form.html",
         scope: $scope,
         controller: 'AddContactFormCtrl'
       });
@@ -19,7 +19,7 @@
     $scope.editContact = function() {
       var modalInstance;
       modalInstance = $modal.open({
-        templateUrl: "/templates/contact_form.html",
+        templateUrl: "templates/contact_form.html",
         scope: $scope,
         controller: 'EditContactFormCtrl',
         resolve: {
