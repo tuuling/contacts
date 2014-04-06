@@ -6,7 +6,7 @@ app.controller 'ContactListCtrl', ($scope, $modal, ContactList) ->
 
   $scope.addContact = () ->
     $modal.open
-      templateUrl: "/templates/contact_form.html"
+      templateUrl: "templates/contact_form.html"
       scope: $scope
       controller: 'AddContactFormCtrl'
 
@@ -18,7 +18,7 @@ app.controller 'ContactCtrl', ($scope, $modal) ->
 
   $scope.editContact = () ->
     modalInstance = $modal.open
-      templateUrl: "/templates/contact_form.html"
+      templateUrl: "templates/contact_form.html"
       scope: $scope
       controller: 'EditContactFormCtrl'
       resolve:
