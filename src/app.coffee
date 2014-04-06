@@ -6,24 +6,38 @@ app.controller 'ContactListCtrl', ($scope, $modal, ContactList) ->
 
   $scope.addContact = () ->
     $modal.open
-      templateUrl: "/templates/add_contact.html"
+      templateUrl: "/templates/contact_form.html"
       scope: $scope
-      controller: 'AddContactCtrl'
+      controller: 'AddContactFormCtrl'
 
   $scope.predicate = 'firstname'
 
   return
 
-app.controller 'ContactCtrl', ($scope) ->
+app.controller 'ContactCtrl', ($scope, $modal) ->
+
+  $scope.editContact = () ->
+    modalInstance = $modal.open
+      templateUrl: "/templates/contact_form.html"
+      scope: $scope
+      controller: 'EditContactFormCtrl'
+      resolve:
+        contact: () ->
+          $scope.contact
+
+    modalInstance.result.then (result) ->
+      $scope.contact = result
 
   return
 
-app.controller 'AddContactCtrl', ($scope, $modalInstance, ContactList) ->
+app.controller 'AddContactFormCtrl', ($scope, $modalInstance, ContactList) ->
   $scope.form =
     firstname: ''
     lastname: ''
     phone: ''
     group: ''
+
+  $scope.action = 'Add'
 
   $scope.submit = () ->
     if $scope.form.firstname and $scope.form.phone
@@ -32,7 +46,16 @@ app.controller 'AddContactCtrl', ($scope, $modalInstance, ContactList) ->
 
   return
 
+app.controller 'EditContactFormCtrl', ($scope, $modalInstance, contact) ->
+  $scope.form = angular.copy contact
 
+  $scope.action = 'Edit'
+
+  $scope.submit = () ->
+    if $scope.form.firstname and $scope.form.phone
+      $modalInstance.close $scope.form
+
+  return
 
 app.service 'ContactList', () ->
 
