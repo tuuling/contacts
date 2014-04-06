@@ -63,7 +63,7 @@ describe 'Contact list app - ', ->
 #       because the $modal returns a promise, we have to create our own and return that
         deferred = $q.defer()
 
-        spyOn($modal, 'open').andReturn
+        spyOn($modal, 'open').and.returnValue
           result: deferred.promise
 
         modalOptions =
@@ -73,7 +73,7 @@ describe 'Contact list app - ', ->
 
         do $scope.editContact
 #       we take the resolve object from the actual implementation because there is no other way to compare
-        modalOptions.resolve = $modal.open.mostRecentCall.args[0].resolve
+        modalOptions.resolve = $modal.open.calls.mostRecent().args[0].resolve
 
 #       we make sure that the contact object returns what we expect
         expect(do modalOptions.resolve.contact).toEqual $scope.contact
@@ -90,7 +90,7 @@ describe 'Contact list app - ', ->
           phone: '53810100'
           group: 'work'
 
-        spyOn($modal, 'open').andReturn
+        spyOn($modal, 'open').and.returnValue
           result: deferred.promise
 
         do $scope.editContact
@@ -232,6 +232,7 @@ describe 'Contact list app - ', ->
         ContactList = $injector.get 'ContactList'
 
       it 'should set a list parameter as an array', ->
+
         expect(angular.isArray ContactList.list).toBe true
 
       it 'should push a new item to the array when add method is called', ->
