@@ -27,7 +27,6 @@ Run unit tests with the ``grunt test`` command
 * [AngularJS](http://angularjs.org) as the main framework for the webapp
 * [Bootstrap](http://getbootstrap.com) for css styles and layout
 * [Angular UI $modal service](http://angular-ui.github.io/bootstrap/#/modal) for displaying overlays
-
 * [Express](http://expressjs.com) to serve static files
 * [Grunt](http://gruntjs.com) as the JS task runner for compiling coffeescript files and running tests
 * [Jasmine](http://jasmine.github.io/2.0/introduction.html) as the JS test runner
