@@ -24,4 +24,8 @@ Run unit tests with the ``grunt test`` command
 
 ### Tools and frameworks used
 
-* [AngularJS]http://angularjs.orghttp://angular
+* [AngularJS](http://angularjs.org) as the main framework for the webapp
+* [Bootstrap](http://getbootstrap.com) for css styles and layout
+* [Angular UI $modal service](http://angular-ui.github.io/bootstrap/#/modal) for displaying overlays
+
+* [http://expressjs.com](http://expressjs.com) to serve statsta
