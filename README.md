@@ -38,10 +38,11 @@ Run unit tests with the ``grunt test`` command
 * [Jasmine](http://jasmine.github.io/2.0/introduction.html) JS test framework
 
 ### File structure
-*``/public`` includes the all the static files needed to run the app in the browser
-*``/src`` includes the coffeescript source file(s)
-*``/test/unit`` includes the unit tests
-*``/app.js`` basic express app to serve static files 
-*``/Gruntfile.js`` Config file for Grunt task runner
-*``/karma.conf.js`` Config file for Karma test runner
-*``/package.conf.js`` NPM conf file that lists the node.js depencies for the app
+
+* ``/public`` includes the all the static files needed to run the app in the browser
+* ``/src`` includes the coffeescript source file(s)
+* ``/test/unit`` includes the unit tests
+* ``/app.js`` basic express app to serve static files 
+* ``/Gruntfile.js`` Config file for Grunt task runner
+* ``/karma.conf.js`` Config file for Karma test runner
+* ``/package.conf.js`` NPM conf file that lists the node.js depencies for the app
