@@ -28,4 +28,6 @@ Run unit tests with the ``grunt test`` command
 * [Bootstrap](http://getbootstrap.com) for css styles and layout
 * [Angular UI $modal service](http://angular-ui.github.io/bootstrap/#/modal) for displaying overlays
 
-* [http://expressjs.com](http://expressjs.com) to serve statsta
+* [http://expressjs.com](http://expressjs.com) to serve static files
+* [Grunt](http://gruntjs.com) as the JS task runner for compiling coffeescript files and running tests
+* [Jasmine](http://jasmine.github.io/2.0/introduction.html) as the JS test runner
